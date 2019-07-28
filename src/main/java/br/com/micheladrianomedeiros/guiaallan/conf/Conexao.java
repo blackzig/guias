@@ -20,7 +20,6 @@ public class Conexao {
 
     public static Connection conectar() {
         try {
-            //?useTimezone=true&serverTimezone=UTC
             con = DriverManager.getConnection("jdbc:mysql://localhost/guia", "root", "");
            // con = DriverManager.getConnection("jdbc:mysql://localhost/guia?useTimezone=true&serverTimezone=UTC", "root", "");
         } catch (SQLException e) {
