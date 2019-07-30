@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class ProcessarPDF {
 
-    public static void pdfFile82(List<String> conteudoPDF) {
+    public static boolean pdfFile82(List<String> conteudoPDF) {
         /*
         linhas para ler
         Nome da documentação    3
@@ -46,6 +46,7 @@ public class ProcessarPDF {
         } else {
             System.out.println("Já tem.");
         }
+        return itsOK;
     }
 
     public static void pdfFile70(List<String> conteudoPDF) {

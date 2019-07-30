@@ -56,14 +56,15 @@ public class PDFDARF {
                         i--;
                         if (i == 82) {
                             System.out.println("82");
-                            ProcessarPDF.pdfFile82(conteudoPDF);
+                            boolean itsOK = ProcessarPDF.pdfFile82(conteudoPDF);
+                            document.close();
+                            if (itsOK) {
+                                Arquivo.moveFile(f);
+                            }
                         } else if (i == 70) {
                             ProcessarPDF.pdfFile70(conteudoPDF);
                         }
                     }
-
-                    document.close();
-                    Arquivo.moveFile(f);
                     System.out.println("-----------------------------------");
                 }
             }
