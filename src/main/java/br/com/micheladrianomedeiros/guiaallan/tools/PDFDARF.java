@@ -24,8 +24,9 @@ public class PDFDARF {
     public static List<PdfDarf> readRows() {
         List<PdfDarf> lista = new ArrayList<>();
         try {
+            List<File> listFiles = null;
             for (String pasta : PATHSFOLDERS) {
-                List<File> listFiles = Arquivo.justPDFFiles(pasta);
+                listFiles = Arquivo.justPDFFiles(pasta);
 
                 for (File f : listFiles) {
                     PDDocument document = PDDocument.load(f);
@@ -60,10 +61,13 @@ public class PDFDARF {
                             ProcessarPDF.pdfFile70(conteudoPDF);
                         }
                     }
+
                     document.close();
+                    Arquivo.moveFile(f);
                     System.out.println("-----------------------------------");
                 }
             }
+            // Arquivo.moveFile(listFiles);
         } catch (IOException e) {
             System.out.println("ERRO readRows " + e.getMessage());
         }
